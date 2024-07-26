@@ -26,7 +26,9 @@ The project repository, including a bug tracker, can be found at https://github.
   \begin{axis}[
     beamercolors
   ]
-    \addplot {x};   \addplot {x-1}; \addplot {x-2}; \addplot {x-3}; \addplot {x-4}; \addplot {x-5}; \addplot {x-6}; \addplot {x-7}; \addplot {x-8};
+    \addplot {x};   \addplot {x-1}; \addplot {x-2}; 
+    \addplot {x-3}; \addplot {x-4}; \addplot {x-5}; 
+    \addplot {x-6}; \addplot {x-7}; \addplot {x-8};
   \end{axis}
 \end{tikzpicture}
 \end{frame}
