@@ -1,0 +1,117 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Documentation for the pgfplotsthemebeamer package
+% Using colours from the current beamer theme in pgfplots
+% Maintained by samcarter
+%
+% Project repository and bug tracker:
+% https://github.com/samcarter/pgfplotstheme-beamer
+%
+% Released under the LaTeX Project Public License v1.3c or later
+% See http://www.latex-project.org/lppl.txt
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TeX program = txs:///arara
+% arara: latexmk: {
+% arara: --> engine: pdflatex,
+% arara: --> options: [
+% arara: -->    '-shell-escape',
+% arara: -->    '-synctex=1',
+% arara: -->    '-interaction=nonstopmode',
+% arara: -->  ]
+% arara: --> }
+\documentclass{scrartcl}
+
+% meta %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{The pgfplotsthemebeamer package}
+\subtitle{Using colours from the current beamer theme in pgfplots}
+\author{%
+  \texorpdfstring{
+    \texttt{samcarter}\\
+    \url{https://github.com/samcarter/beamertheme-rainbow}\\
+    \url{https://www.ctan.org/pkg/beamertheme-rainbow}
+  }{samcarter}}
+\date{Version v0.1 \textendash{} 2024/07/26}
+
+\usepackage[
+  themecolor=samorange
+]{\jobname-settings}
+
+% customisation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\prefix}{./include}
+\tcbset{
+  compilable listing/.style={listing file={\prefix/\jobname-listing-\thetcblistingcount.tex}},
+  run pdflatex/.style={run@system@command={cd\space \prefix;\space pdflatex}{\jobname-listing-\thetcblistingcount.tex}},%
+}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\label{intro}
+
+Beamer themes often use carefully composed colour schemes. The \saminline|pgfplotsthemebeamer| package allows to reuse these colours in diagrams created with \saminline|pfgplots|. This ensures a consistent colour scheme throughout the presentation and avoids unsightly colour clashes.
+
+%The package is included in \TeX{}Live and MiK\TeX\ and available from \textsc{CTAN} (\url{https://www.ctan.org/pkg/pgfplotsthemebeamer}).
+The development version of this package is located at \url{https://github.com/samcarter/pgfplotsthemebeamer}. If you have any problems, ideas or other feedback, please make constructive use of the issue tracker.
+
+Copyright \raisebox{0.2em}{\tiny\fontfamily{cmr}\selectfont\textcopyright} \texttt{samcarter}. Permission is granted to copy, distribute and\slash or modify this software under the terms of the LaTeX project public licence, version 1.3c or later \url{http://www.latex-project.org/lppl.txt}.
+
+\section{Usage}
+
+The basic usage is fairly simple. After loading the \saminline|pgfplotsthemebeamer| package, plots can use the \saminline|beamercolor| option to use the colours from the current beamer theme in the diagram:
+\begin{tcolorbox}[title={Usage}]
+\begin{samcode}
+\usepackage{pgfplotsthemebeamer}
+
+\begin{axis}[
+  beamercolors
+]
+...
+\end{axis}
+\end{samcode}
+\end{tcolorbox}
+The graphs will be coloured in the beamer colours \saminline|structure|, \saminline|alerted text| and \saminline|example text|. In most beamer themes, these three colours form an easily distinguishable set of colours.
+
+Users who would like to use the \saminline|beamercolors| scheme for all \saminline|pgfplots| diagrams in the presentation, can load the package with the \saminline|all| option, which will make this colour scheme the default.
+\begin{tcolorbox}[title={Usage}]
+\begin{samcode}
+\usepackage[all]{pgfplotsthemebeamer}
+\end{samcode}
+\end{tcolorbox}
+
+\section{Full example}
+\begin{tcblisting}{
+  listing only,
+  freeze pdf,
+  compilable listing,
+  run pdflatex,
+  title={Basic example},
+  righthand width=0pt
+}
+\documentclass{beamer}
+
+\usetheme{moloch}% just as an example for a colour theme
+\usepackage{pgfplotsthemebeamer}
+
+\begin{document}
+
+\begin{frame}[plain]
+\centering
+\begin{tikzpicture}
+  \begin{axis}[
+    beamercolors
+  ]
+    \addplot {x};   \addplot {x-1}; \addplot {x-2}; \addplot {x-3}; \addplot {x-4}; \addplot {x-5}; \addplot {x-6}; \addplot {x-7}; \addplot {x-8};
+  \end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\end{document}
+\end{tcblisting}
+\vfill
+\centering
+\setlength{\fboxsep}{0pt}%
+\fbox{\includegraphics[width=.75\textwidth]{pgfplotsthemebeamer-doc-listing-1.pdf}}%
+
+\end{document}

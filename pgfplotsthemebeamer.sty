@@ -1,0 +1,45 @@
+% !TeX root = ./testing/test.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The pgfplotsthemebeamer package
+% Using colours from the current beamer theme in pgfplots
+% Maintained by samcarter
+%
+% Project repository and bug tracker:
+% https://github.com/samcarter/pgfplotstheme-beamer
+%
+% Released under the LaTeX Project Public License v1.3c or later
+% See http://www.latex-project.org/lppl.txt
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{pgfplotsthemebeamer}[2024/07/25 version v0.1 PGFplots colours based the colours of the current beamer theme]
+
+% error if used with a class other than beamer
+\IfClassLoadedF{beamer}{%
+  \PackageError{pgfplotsthemebeamer}{This pgfplots theme needs to be used in conjunction with the beamer class}{}
+}
+
+% process package options
+\RequirePackage{pgfopts}
+\newif\ifpgfplotsthemebeamer@all
+\pgfkeys{
+  pgfplotsthemebeamer/.cd ,
+  all/.code = \pgfplotsthemebeamer@alltrue,
+}
+\ProcessPgfOptions{/pgfplotsthemebeamer}
+
+% setting up colours
+\RequirePackage{pgfplots}
+\pgfplotsset{
+  beamercolors/.style={
+    cycle multi list={
+      mark=*\\mark=x\\mark=square*\\mark=o\\mark=+\\mark=square\\\nextlist
+      structure.fg\\alerted text.fg\\example text.fg\\
+    }
+  }
+}
+
+% making beamercolors default if package is loaded with `all` option
+\ifpgfplotsthemebeamer@all
+  \pgfplotsset{beamercolors}
+\fi
