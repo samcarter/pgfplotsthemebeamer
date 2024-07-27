@@ -6,6 +6,8 @@
 
 ### Changed
 
+- updated links in documentation
+
 ### Fixed
 
 ## [v0.1]
