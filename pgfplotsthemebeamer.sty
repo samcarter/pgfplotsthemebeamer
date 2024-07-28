@@ -19,15 +19,6 @@
   \PackageError{pgfplotsthemebeamer}{This pgfplots theme needs to be used in conjunction with the beamer class}{}
 }
 
-% process package options
-\RequirePackage{pgfopts}
-\newif\ifpgfplotsthemebeamer@all
-\pgfkeys{
-  pgfplotsthemebeamer/.cd ,
-  all/.code = \pgfplotsthemebeamer@alltrue,
-}
-\ProcessPgfOptions{/pgfplotsthemebeamer}
-
 % setting up colours
 \RequirePackage{pgfplots}
 \pgfplotsset{
@@ -40,6 +31,7 @@
 }
 
 % making beamercolors default if package is loaded with `all` option
-\ifpgfplotsthemebeamer@all
+\DeclareOption{all}{
   \pgfplotsset{beamercolors}
-\fi
+}
+\ProcessOptions\relax
