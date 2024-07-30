@@ -1,8 +1,8 @@
 # pgfplotsthemebeamer
 
-[![GitHub](https://img.shields.io/github/license/samcarter/pgfplotsthemebeamer.svg?color=blue)](http://www.latex-project.org/lppl.txt)
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/samcarter/pgfplotsthemebeamer.svg?label=current%20version)](https://github.com/samcarter/pgfplotsthemebeamer/releases/latest)
-[![CTAN](https://img.shields.io/ctan/v/pgfplotsthemebeamer.svg)](https://ctan.org/pkg/pgfplotsthemebeamer)
+[![License](https://img.shields.io/github/license/samcarter/pgfplotsthemebeamer.svg?color=blue)](http://www.latex-project.org/lppl.txt)
+[![GitHub tag](https://img.shields.io/github/tag/samcarter/pgfplotsthemebeamer.svg?label=current%20version&color=blue)](https://github.com/samcarter/pgfplotsthemebeamer/releases/latest)
+[![CTAN](https://img.shields.io/ctan/v/pgfplotsthemebeamer.svg?color=blue)](https://ctan.org/pkg/pgfplotsthemebeamer)
 
 A package for using colours from the current beamer theme in pgfplots diagrams.
 
