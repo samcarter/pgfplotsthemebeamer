@@ -38,13 +38,6 @@
 \date{Version v0.2 \textendash{} 2024/08/02}
 \packagename{pgfplotsthemebeamer}
 
-% customisation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\prefix}{./include}
-\tcbset{
-  compilable listing/.style={listing file={\prefix/\jobname-listing-\thetcblistingcount.tex}},
-  run pdflatex/.style={run@system@command={cd\space \prefix;\space pdflatex}{\jobname-listing-\thetcblistingcount.tex}},%
-}
-
 \begin{document}
 \maketitle
 
@@ -83,7 +76,7 @@ Users who would like to use the \saminline|beamercolors| scheme for all \saminli
   listing only,
   freeze pdf,
   compilable listing,
-  run pdflatex,
+  run latexmk,
   title={Basic example},
   righthand width=0pt
 }
