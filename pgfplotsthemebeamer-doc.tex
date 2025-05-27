@@ -73,12 +73,14 @@ Users who would like to use the \saminline|beamercolors| scheme for all \saminli
 
 \section{Full example}
 \begin{tcblisting}{
-  listing only,
+  title={Basic example},
+  sidebyside=false,
+  listing above* comment,
+  pdf comment,
   freeze pdf,
   compilable listing,
   run latexmk={-g- -pdf -cd},
-  title={Basic example},
-  righthand width=0pt
+  comment style={raster columns=1,scale=0.8},
 }
 \documentclass{beamer}
 
@@ -100,9 +102,5 @@ Users who would like to use the \saminline|beamercolors| scheme for all \saminli
 
 \end{document}
 \end{tcblisting}
-\vfill
-\centering
-\setlength{\fboxsep}{0pt}%
-\fbox{\includegraphics[width=.75\textwidth]{pgfplotsthemebeamer-doc-listing-1.pdf}}%
 
 \end{document}
